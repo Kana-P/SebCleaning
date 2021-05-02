@@ -1,0 +1,182 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+
+/* Fonts */
+@font-face {
+  font-family: ThaiSansNeue-Regular;
+  src: url("fonts/ThaiSansNeue-Regular.ttf");
+}
+@font-face {
+  font-family: ThaiSansNeue-Bold;
+  src: url("fonts/ThaiSansNeue-Bold.ttf");
+}
+@font-face {
+  font-family: ThaiSansNeue-Black;
+  src: url("fonts/ThaiSansNeue-Black.ttf");
+}
+
+/* General */
+* {
+  font-family: ThaiSansNeue-Regular;
+  font-size: 24px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: ThaiSansNeue-Black;
+}
+
+h4 {
+  font-family: ThaiSansNeue-Bold;
+  padding-top: 20px;
+  color: #15c4ba;
+}
+
+.infoBlock {
+  padding: 30px;
+}
+
+.serviceInfo {
+  text-align: center;
+  padding: 30px;
+}
+
+.disable {
+  display: none;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+/* Service button */
+.serButton {
+  margin: 5px;
+  width: 110px;
+  height: 40px;
+  font-family: ThaiSansNeue-Bold;
+  color: white;
+  background: #c5c5c5;
+  border: none;
+  border-radius: 100px;
+  transition: .4s;
+}
+
+.serButton:hover {
+  background: #15c4ba;
+}
+
+.selected {
+  background: #15c4ba;
+}
+
+/* Navbar */
+nav {
+  height: 50px;
+  background: white;
+  box-shadow: 0 1px 1px 0 #15c4ba;
+}
+
+.logo {
+  width: auto;
+  height: 30px;
+  margin-left: 20px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+}
+
+.nav-item {
+  padding: 10px 20px 10px 20px;
+}
+
+.nav-link {
+  color: #15c4ba;
+}
+
+.navmenu {
+  margin: 0 auto;
+}
+
+.ham {
+  margin: 0 20px 0 auto;
+  color: #15c4ba;
+  cursor: pointer;
+}
+
+.SignInButton {
+  font-family: ThaiSansNeue-Bold;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  margin-right: 20px;
+  color: white;
+  background: #15c4ba;
+  border: none;
+  border-radius: 100px;
+  z-index: 1000;
+}
+
+.SignInButtonSide {
+  font-family: ThaiSansNeue-Bold;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background: #15c4ba;
+  border: none;
+  border-radius: 100px;
+}
+
+.sidebar {
+  position: fixed;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: 0 1px 1px 1px #15c4ba;
+  z-index: 999;
+  transition: 0.4s;
+}
+
+.sidebar ul a {
+  transition: 0.4s;
+}
+
+.sidebar ul li:hover a {
+  padding-left: 30px;
+}
+
+/* Banner */
+.banner {
+  position: relative;
+  background: #15c4ba;
+  width: 100%;
+  height: 400px;
+}
+
+.overlay {
+  background: black;
+  opacity: 0.3;
+  width: 100%;
+  height: 400px;
+  z-index: 1;
+}
+
+.bannerText {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+/* Temp */
+.infoImg {
+  height: 300px;
+  background: #15c4ba;
+}
