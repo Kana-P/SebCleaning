@@ -83,7 +83,7 @@
     </div>  
     
     <!-- Content -->
-    <section class="container-fluid">
+    <section class="container-fluid" id="conSelect">
       <!-- Service Select -->
       <div class="infoBlock row">
         <div class="col-lg-2 emptySpace"></div>
@@ -97,8 +97,8 @@
                 <div class="card-body">
                   <img src="img/icon/sweeping.png" class="img-fluid">
                   <h4>Cleaning Service</h4>
-                  <h4 style="color: black;">00 บาท/ชั่วโมง</h4>
-                  <button class="selectButton">Select</button>
+                  <h4 style="color: black;">250 บาท/ชั่วโมง</h4>
+                  <button class="selectButton" onclick="cleanCon()">Select</button>
                 </div>
               </div>
             </div>
@@ -108,8 +108,8 @@
                 <div class="card-body">
                   <img src="img/icon/washing.png" class="img-fluid">
                   <h4>Laundry Service</h4>
-                  <h4 style="color: black;">00 บาท / ชั่วโมง</h4>
-                  <button class="selectButton">Select</button>
+                  <h4 style="color: black;">200 บาท/ชั่วโมง</h4>
+                  <button class="selectButton" onclick="laundryCon()">Select</button>
                 </div>
               </div>
             </div>
@@ -119,8 +119,8 @@
                 <div class="card-body">
                   <img src="img/icon/mansion.png" class="img-fluid">
                   <h4>Combo</h4>
-                  <h4 style="color: black;">00 บาท/ชั่วโมง</h4>
-                  <button class="selectButton">Select</button>
+                  <h4 style="color: black;">350 บาท/ชั่วโมง</h4>
+                  <button class="selectButton" onclick="comboCon()">Select</button>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@
     </section>
 
     <!-- Payment Forms -->
-    <section class="container-fluid" style="background: #15c4ba;">
+    <section class="container-fluid disable" id="part01" style="background: #15c4ba;">
       <!-- Payment Form Part 01 -->
       <div class="row" style="padding-top: 80px;">
         <h4 style="text-align: center; color: white;">แบบฟอร์มการชำระเงิน</h4>
@@ -157,7 +157,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">ประเภทที่อยู่อาศัย</label>
-                <select class="form-select">
+                <select class="form-select" id="houseSize" onchange="changeTime()">
                   <option value="1" selected>คอนโด 1 ห้องนอน (ไม่เกิน 40 ตร.ม.)</option>
                   <option value="2">คอนโด 1 ห้องนอน (ไม่เกิน 50 ตร.ม.)</option>
                   <option value="3">คอนโด 2 ห้องนอน (ไม่เกิน 80 ตร.ม.)</option>
@@ -169,9 +169,9 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">เวลาที่ต้องการจ้าง (ชม.)</label>
-                <select class="form-select">
-                  <option value="1" selected>1</option>
-                  <option value="2">2</option>
+                <select class="form-select" id="hour" onchange="changePrice()">
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
@@ -183,7 +183,7 @@
               <div class="mb-3">
                 <label class="form-label">ที่พักมีสัตวเลี้ยงหรือไม่?</label>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="petYes" checked>
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="petYes">
                   <label class="form-check-label" for="petYes">
                     มี
                   </label>
@@ -233,19 +233,18 @@
         <div class="col-lg-4">
           <div class="formBox sticky-top" style="padding-top: 0;">
             <h4>รายละเอียดการสั่งจองบริการ</h4>
-            <p>Service Name</p>
-            <p>Time</p>
-            <p>Cleaner</p>
-            <p>Address</p>
-            <h3 style="color: #15c4ba; text-align: right;">000 บาท</h3>
-            <button class="selectButton">ต่อไป</button>
+            <p id="serName">บริการ</p>
+            <p id="base">ค่าบริการ -- บาท/ชม.</p>
+            <p id="sumHour">2 ชั่วโมง</p>
+            <h3 style="color: #15c4ba; text-align: right;" id="finalPrice">XX บาท</h3>
+            <button class="selectButton" onclick="toFormPart02()">ต่อไป</button>
           </div>
         </div>
         <div class="col-lg-2 emptySpace"></div>
       </div>
     </section>
 
-    <section class="container-fluid" style="background: #15c4ba;">
+    <section class="container-fluid disable" id="part02" style="background: #15c4ba; height: 100%;">
       <!-- Payment Form Part 02 -->
       <div class="row" style="padding-top: 80px;">
         <h4 style="text-align: center; color: white;">กรุณายืนยันตัวตน</h4>
@@ -256,14 +255,14 @@
             <div class="mb-3">
               <input class="form-control" type="text" placeholder="OTP"></input>
             </div>
-            <button class="selectButton">ยืนยัน</button>
+            <button class="selectButton" onclick="toFinal()">ยืนยัน</button>
           </div>
         </div>
         <div class="col-lg-2 emptySpace"></div>
       </div>
     </section>
 
-    <section class="container-fluid" style="background: #15c4ba;">
+    <section class="container-fluid disable" id="part03" style="background: #15c4ba; height: 100%;">
       <!-- Payment Form Part 03 -->
       <div class="row" style="padding-top: 80px;">
         <h4 style="text-align: center; color: white;">ขอบคุณที่ใช้บริการ</h4>
@@ -271,7 +270,7 @@
         <div class="col-lg-8">
           <div class="formBox" style="text-align: center;">
             <p>ขอบคุณที่เลือกใช้บริการ คุณสามารถตรวจสอบหลักฐานการชำระเงินได้ที่อีเมลของคุณ</p>
-            <button class="selectButton">กลับสู่หน้าเลือกบริการ</button>
+            <button class="selectButton" onclick="toFirst()">กลับสู่หน้าเลือกบริการ</button>
           </div>
         </div>
         <div class="col-lg-2 emptySpace"></div>
