@@ -20,7 +20,6 @@
       src="https://kit.fontawesome.com/3437ca9b77.js"
       crossorigin="anonymous"
     ></script>
-    </style>
   </head>
   <body>
     <!-- Sidebar -->
@@ -132,17 +131,149 @@
     </section>
 
     <!-- Payment Forms -->
-    <section class="container-fluid">
+    <section class="container-fluid" style="background: #15c4ba;">
       <!-- Payment Form Part 01 -->
       <div class="row" style="padding-top: 80px;">
-        <h4 style="text-align: center;">แบบฟอร์มการชำระเงิน</h4>
+        <h4 style="text-align: center; color: white;">แบบฟอร์มการชำระเงิน</h4>
         <div class="col-lg-2 emptySpace"></div>
         <div class="col-lg-4">
           <div class="formBox">
-            
+            <form>
+              <div class="mb-3">
+                <label class="form-label">ชื่อ</label>
+                <input class="form-control" type="text" placeholder="Name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">เบอร์โทรศัพท์</label>
+                <input class="form-control" type="text" placeholder="Phone"></input>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">อีเมล</label>
+                <input class="form-control" type="email" placeholder="Emailinput"></input>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">ที่อยู่</label>
+                <textarea class="form-control" type="text" placeholder="Address"></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">ประเภทที่อยู่อาศัย</label>
+                <select class="form-select">
+                  <option value="1" selected>คอนโด 1 ห้องนอน (ไม่เกิน 40 ตร.ม.)</option>
+                  <option value="2">คอนโด 1 ห้องนอน (ไม่เกิน 50 ตร.ม.)</option>
+                  <option value="3">คอนโด 2 ห้องนอน (ไม่เกิน 80 ตร.ม.)</option>
+                  <option value="4">คอนโด 3 ห้องนอน (ไม่เกิน 100 ตร.ม.)</option>
+                  <option value="5">บ้านชั้นเดียว (ไม่เกิน 100 ตร.ม.)</option>
+                  <option value="6">บ้าน 2-3 ชั้น (100-200 ตร.ม.)</option>
+                  <option value="7">บ้าน (มากกว่า 200 ตร.ม.)</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">เวลาที่ต้องการจ้าง (ชม.)</label>
+                <select class="form-select">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">ที่พักมีสัตวเลี้ยงหรือไม่?</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="petYes" checked>
+                  <label class="form-check-label" for="petYes">
+                    มี
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="petNo">
+                  <label class="form-check-label" for="petNo">
+                    ไม่มี
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">พนักงานทำความสะอาด</label>
+                <select class="form-select">
+                  <option value="1" selected>เซบาสเตียน เอ</option>
+                  <option value="2">เซบาสเตียน บี</option>
+                  <option value="3">เซบาสเตียน ซี</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">วันที่ต้องการใช้บริการ</label>
+                <input class="form-control" type="date"></input>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">หมายเหตุ</label>
+                <input class="form-control" type="text" placeholder="เช่น การรับกุญแจ, บริเวณที่ต้องดูแลเป็นพิเศษ"></input>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">หมายเลขบัตรเครดิต/เดบิต</label>
+                <input class="form-control" type="text" placeholder="Card number"></input>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">ชื่อผู้ถือบัตร</label>
+                <input class="form-control" type="text" placeholder="Card holder name"></input>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">วันหมดอายุบัตร</label>
+                <input class="form-control" type="text" placeholder="MM/YY"></input>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">CVV</label>
+                <input class="form-control" type="text" placeholder="000"></input>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <div class="formBox sticky-top" style="padding-top: 0;">
+            <h4>รายละเอียดการสั่งจองบริการ</h4>
+            <p>Service Name</p>
+            <p>Time</p>
+            <p>Cleaner</p>
+            <p>Address</p>
+            <h3 style="color: #15c4ba; text-align: right;">000 บาท</h3>
+            <button class="selectButton">ต่อไป</button>
+          </div>
+        </div>
+        <div class="col-lg-2 emptySpace"></div>
+      </div>
+    </section>
+
+    <section class="container-fluid" style="background: #15c4ba;">
+      <!-- Payment Form Part 02 -->
+      <div class="row" style="padding-top: 80px;">
+        <h4 style="text-align: center; color: white;">กรุณายืนยันตัวตน</h4>
+        <div class="col-lg-2 emptySpace"></div>
+        <div class="col-lg-8">
+          <div class="formBox" style="text-align: center;">
+            <p>เราได้ส่งรหัส OTP แล้ว กรุณาตรวจสอบอีเมลของคุณและกรอกรหัส OTP เพื่อทำการยืนยันตัวตน</p>
+            <div class="mb-3">
+              <input class="form-control" type="text" placeholder="OTP"></input>
+            </div>
+            <button class="selectButton">ยืนยัน</button>
+          </div>
+        </div>
+        <div class="col-lg-2 emptySpace"></div>
+      </div>
+    </section>
+
+    <section class="container-fluid" style="background: #15c4ba;">
+      <!-- Payment Form Part 03 -->
+      <div class="row" style="padding-top: 80px;">
+        <h4 style="text-align: center; color: white;">ขอบคุณที่ใช้บริการ</h4>
+        <div class="col-lg-2 emptySpace"></div>
+        <div class="col-lg-8">
+          <div class="formBox" style="text-align: center;">
+            <p>ขอบคุณที่เลือกใช้บริการ คุณสามารถตรวจสอบหลักฐานการชำระเงินได้ที่อีเมลของคุณ</p>
+            <button class="selectButton">กลับสู่หน้าเลือกบริการ</button>
+          </div>
+        </div>
         <div class="col-lg-2 emptySpace"></div>
       </div>
     </section>

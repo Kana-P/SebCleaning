@@ -190,6 +190,14 @@ nav {
   z-index: 2;
 }
 
+/* Form */
+.formBox {
+  margin: 30px;
+  padding: 30px;
+  background: white;
+  box-shadow: 0 2px 2px 0 black;
+}
+
 /* Temp */
 .infoImg {
   height: 300px;
