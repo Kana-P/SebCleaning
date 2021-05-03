@@ -58,5 +58,5 @@ function packOpen() {
     laundry.classList.add("disable");
     laundryButton.classList.remove("selected");
     pack.classList.remove("disable");
-    laundryButton.classList.add("selected");
+    packButton.classList.add("selected");
 }
