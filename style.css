@@ -52,6 +52,9 @@ h4 {
   visibility: hidden;
 }
 
+.card {
+  margin: 30px auto 30px auto;
+}
 /* Service button */
 .serButton {
   margin: 5px;
