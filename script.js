@@ -64,14 +64,22 @@ function packOpen() {
 }
 
 // ---------- Form ---------- //
-let houseSize = document.getElementById("houseSize");
-
 let basePrice;
-let hour = document.getElementById("hour");
+let iron = 50;
+
+let sizeOpt = document.getElementById("sizeOpt"); // div ขนาดบ้าน
+let hourOpt = document.getElementById("hourOpt"); // div ชั่วโมง
+let clothesOpt = document.getElementById("clothesOpt"); // div จำนวนผ้า
+
+let houseSize = document.getElementById("houseSize"); // dropdown ขนาดบ้าน
+let hour = document.getElementById("hour"); // dropdown ชั่วโมง
+let clothes = document.getElementById("clothes"); // dropdown จำนวนผ้า
+
 let finalPrice = document.getElementById("finalPrice");
 let resultService = document.getElementById("serName");
 let resultBase = document.getElementById("base");
 let resultTime = document.getElementById("sumHour");
+let resultAmount = document.getElementById("amount");
 
 let conBanner = document.getElementById("contactBanner");
 let conSelect = document.getElementById("conSelect");
@@ -87,24 +95,31 @@ function cleanCon() {
   finalPrice.innerHTML = basePrice * 2 + " บาท";
   resultService.innerHTML = "Cleaning Service";
   resultBase.innerHTML = basePrice + " บาท/ชั่วโมง";
+  resultAmount.classList.add("disable");
   toForm();
 }
 
 // ตั้งค่าเบื้องต้นสำหรับบริการ Laundry
 function laundryCon() {
   basePrice = 200;
-  finalPrice.innerHTML = basePrice * 2 + " บาท";
+  finalPrice.innerHTML = basePrice + " บาท";
   resultService.innerHTML = "Laundry Service";
-  resultBase.innerHTML = basePrice + " บาท/ชั่วโมง";
+  resultBase.innerHTML = "เริ่มต้นที่ " + basePrice + " บาท เพิ่มขึ้น 50 บาท ทุกๆ 10 ชิ้น";
+  resultAmount.classList.remove("disable");
+  sizeOpt.classList.add("disable");
+  hourOpt.classList.add("disable");
+  clothesOpt.classList.remove("disable");
+  resultTime.classList.add("disable");
   toForm();
 }
 
 // ตั้งค่าเบื้องต้นสำหรับบริการ Combo
 function comboCon() {
-  basePrice = 350;
+  basePrice = 290;
   finalPrice.innerHTML = basePrice * 2 + " บาท";
   resultService.innerHTML = "Combo";
   resultBase.innerHTML = basePrice + " บาท/ชั่วโมง";
+  resultAmount.classList.add("disable");
   toForm();
 }
 
@@ -119,12 +134,11 @@ function toForm() {
 
 // Form Part 01 ไป Form Part 02
 function toFormPart02() {
+  // Backend 01
 
-// Backend 01
+  // ใส่ระบบส่ง OTP เข้าเมลตรงนี้
 
-// ใส่ระบบส่ง OTP เข้าเมลตรงนี้
-
-// Backend 01
+  // Backend 01
 
   conBanner.classList.add("disable");
   conSelect.classList.add("disable");
@@ -135,12 +149,11 @@ function toFormPart02() {
 
 // Form Part 02 ไปหน้าขอบคุณ
 function toFinal() {
+  // Backend 02
 
-// Backend 02
+  // ใส่ระบบยืนยัน OTP + ส่งเมลหลักฐานตรงนี้
 
-// ใส่ระบบยืนยัน OTP + ส่งเมลหลักฐานตรงนี้
-
-// Backend 02
+  // Backend 02
 
   conBanner.classList.add("disable");
   conSelect.classList.add("disable");
@@ -193,4 +206,10 @@ function changePrice() {
   let time = parseInt(hour.value);
   resultTime.innerHTML = time + " ชั่วโมง";
   finalPrice.innerHTML = basePrice * time + " บาท";
+}
+
+function changeAmount() {
+  let clothesValue = parseInt(clothes.value);
+  resultAmount.innerHTML = "ไม่เกิน " + clothesValue + " ชิ้น";
+  finalPrice.innerHTML = basePrice + (50 * ((clothesValue- 20)/10)) + " บาท";
 }

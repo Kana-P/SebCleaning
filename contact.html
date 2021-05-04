@@ -106,9 +106,10 @@
             <div class="col-lg">
               <div class="card" style="text-align: center;">
                 <div class="card-body">
-                  <img src="img/icon/washing.png" class="img-fluid">
-                  <h4>Laundry Service</h4>
-                  <h4 style="color: black;">200 บาท/ชั่วโมง</h4>
+                  <img src="img/icon/iron.png" class="img-fluid">
+                  <h4>Ironing Service</h4>
+                  <h4 style="color: black;">เริ่มต้นที่ 200 บาท</h4>
+                  <p>และเพิ่มขึ้น 50 บาท ตามจำนวนเสื้อผ้าทุกๆ 10 ชิ้น</p>
                   <button class="selectButton" onclick="laundryCon()">Select</button>
                 </div>
               </div>
@@ -119,7 +120,7 @@
                 <div class="card-body">
                   <img src="img/icon/mansion.png" class="img-fluid">
                   <h4>Combo</h4>
-                  <h4 style="color: black;">350 บาท/ชั่วโมง</h4>
+                  <h4 style="color: black;">290 บาท/ชั่วโมง</h4>
                   <button class="selectButton" onclick="comboCon()">Select</button>
                 </div>
               </div>
@@ -155,7 +156,7 @@
                 <label class="form-label">ที่อยู่</label>
                 <textarea class="form-control" type="text" placeholder="Address"></textarea>
               </div>
-              <div class="mb-3">
+              <div class="mb-3" id="sizeOpt">
                 <label class="form-label">ประเภทที่อยู่อาศัย</label>
                 <select class="form-select" id="houseSize" onchange="changeTime()">
                   <option value="1" selected>คอนโด 1 ห้องนอน (ไม่เกิน 40 ตร.ม.)</option>
@@ -167,7 +168,7 @@
                   <option value="7">บ้าน (มากกว่า 200 ตร.ม.)</option>
                 </select>
               </div>
-              <div class="mb-3">
+              <div class="mb-3" id="hourOpt">
                 <label class="form-label">เวลาที่ต้องการจ้าง (ชม.)</label>
                 <select class="form-select" id="hour" onchange="changePrice()">
                   <option value="1">1</option>
@@ -178,6 +179,16 @@
                   <option value="6">6</option>
                   <option value="7">7</option>
                   <option value="8">8</option>
+                </select>
+              </div>
+              <div class="mb-3 disable" id="clothesOpt">
+                <label class="form-label">จำนวนเสื้อผ้าที่ต้องการซักรีด</label>
+                <select class="form-select" id="clothes" onchange="changeAmount()">
+                  <option value="20" selected>ไม่เกิน 20 ชิ้น</option>
+                  <option value="30">ไม่เกิน 30 ชิ้น</option>
+                  <option value="40">ไม่เกิน 40 ชิ้น</option>
+                  <option value="50">ไม่เกิน 50 ชิ้น</option>
+                  <option value="60">ไม่เกิน 60 ชิ้น</option>
                 </select>
               </div>
               <div class="mb-3">
@@ -235,6 +246,7 @@
             <h4>รายละเอียดการสั่งจองบริการ</h4>
             <p id="serName">บริการ</p>
             <p id="base">ค่าบริการ -- บาท/ชม.</p>
+            <p id="amount" class="disable">ไม่เกิน 20 ชิ้น</p>
             <p id="sumHour">2 ชั่วโมง</p>
             <h3 style="color: #15c4ba; text-align: right;" id="finalPrice">XX บาท</h3>
             <button class="selectButton" onclick="toFormPart02()">ต่อไป</button>
