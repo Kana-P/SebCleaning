@@ -24,7 +24,7 @@ function HamOpen() {
   }
 }
 
-// Service
+// ---------- Service ---------- //
 let clean = document.getElementById("cleanInfo");
 let laundry = document.getElementById("laundryInfo");
 let pack = document.getElementById("packageInfo");
@@ -63,7 +63,7 @@ function packOpen() {
   packButton.classList.add("selected");
 }
 
-// Form
+// ---------- Form ---------- //
 let houseSize = document.getElementById("houseSize");
 
 let basePrice;
