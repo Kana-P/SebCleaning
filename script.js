@@ -104,7 +104,8 @@ function laundryCon() {
   basePrice = 200;
   finalPrice.innerHTML = basePrice + " บาท";
   resultService.innerHTML = "Laundry Service";
-  resultBase.innerHTML = "เริ่มต้นที่ " + basePrice + " บาท เพิ่มขึ้น 50 บาท ทุกๆ 10 ชิ้น";
+  resultBase.innerHTML =
+    "เริ่มต้นที่ " + basePrice + " บาท เพิ่มขึ้น 50 บาท ทุกๆ 10 ชิ้น";
   resultAmount.classList.remove("disable");
   sizeOpt.classList.add("disable");
   hourOpt.classList.add("disable");
@@ -201,6 +202,62 @@ function changeTime() {
   changePrice();
 }
 
+// ---------- Cleaners Dropdown ---------- //
+let cleanersOpt = document.getElementById("cleanersOpt");
+
+// เอาพนักงานที่มีภูมิแพ้ออกจาก Dropdown
+function pet() {
+  for (i = 0; i < cleanersOpt.length; ++i) {
+    if (cleanersOpt.options[i].classList.contains("allergic")) {
+      cleanersOpt.options[i].classList.add("disable");
+    }
+  }
+}
+
+// เอาพนักงานที่มีภูมิแพ้ออกกลับเข้ามา
+function noPet() {
+  for (i = 0; i < cleanersOpt.length; ++i) {
+    if (cleanersOpt.options[i].classList.contains("disable")) {
+      cleanersOpt.options[i].classList.remove("disable");
+    }
+  }
+}
+
+let jeffDisable = ["29-5-2021", "30-5-2021", "2-6-2021"]; // วันที่ jeff ไม่ว่าง
+let linDisable = ["16-5-2021", "18-5-2021"]; // วันที่ lindy ไม่ว่าง
+let jerryDisable = ["22-5-2021", "23-5-2021", "24-5-2021", "25-5-2021"]; // วันที่ jerry ไม่ว่าง
+
+let disableDates = [];
+
+$(".datepicker").datepicker({
+  format: "mm/dd/yyyy",
+  beforeShowDay: function (date) {
+    dmy =
+      date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+    if (disableDates.indexOf(dmy) != -1) {
+      return false;
+    } else {
+      return true;
+    }
+  },
+});
+
+// ตรวจสอบวันว่างของพนักงาน
+function checkDate() {
+  switch (cleanersOpt.value) {
+    case "1":
+      disableDates = [...jeffDisable];
+      break;
+    case "2":
+      disableDates = [...linDisable];
+      break;
+    default:
+      disableDates = [...jerryDisable];
+  }
+}
+
+// ---------- Result ---------- //
+
 // สรุปราคาที่ต้องจ่าย
 function changePrice() {
   let time = parseInt(hour.value);
@@ -208,8 +265,9 @@ function changePrice() {
   finalPrice.innerHTML = basePrice * time + " บาท";
 }
 
+// สรุปจำนวนผ้าที่ต้องรีด
 function changeAmount() {
   let clothesValue = parseInt(clothes.value);
   resultAmount.innerHTML = "ไม่เกิน " + clothesValue + " ชิ้น";
-  finalPrice.innerHTML = basePrice + (50 * ((clothesValue- 20)/10)) + " บาท";
+  finalPrice.innerHTML = basePrice + 50 * ((clothesValue - 20) / 10) + " บาท";
 }
