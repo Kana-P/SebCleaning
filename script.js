@@ -75,17 +75,17 @@ let houseSize = document.getElementById("houseSize"); // dropdown ขนาด�
 let hour = document.getElementById("hour"); // dropdown ชั่วโมง
 let clothes = document.getElementById("clothes"); // dropdown จำนวนผ้า
 
-let finalPrice = document.getElementById("finalPrice");
-let resultService = document.getElementById("serName");
-let resultBase = document.getElementById("base");
-let resultTime = document.getElementById("sumHour");
-let resultAmount = document.getElementById("amount");
+let finalPrice = document.getElementById("finalPrice"); // สรุปราคารวม
+let resultService = document.getElementById("serName"); // บริการที่เลือก
+let resultBase = document.getElementById("base"); // เรทราคา
+let resultTime = document.getElementById("sumHour"); // สรุปเวลา
+let resultAmount = document.getElementById("amount"); // สรุปจำนวนผ้า
 
-let conBanner = document.getElementById("contactBanner");
-let conSelect = document.getElementById("conSelect");
-let formPart01 = document.getElementById("part01");
-let formPart02 = document.getElementById("part02");
-let formPart03 = document.getElementById("part03");
+let conBanner = document.getElementById("contactBanner"); // Banner หน้า contact
+let conSelect = document.getElementById("conSelect"); // หน้าเลือกบริการ
+let formPart01 = document.getElementById("part01"); // หน้ากรอกข้อมูล
+let formPart02 = document.getElementById("part02"); // หน้ายืนยัน OTP
+let formPart03 = document.getElementById("part03"); // หน้าขอบคุณ
 
 // Contact to form
 
