@@ -1,69 +1,5 @@
-// Hamburger
-let sidebar = document.getElementById("side");
-let ham = document.getElementById("ham");
-let signIn = document.getElementById("signInNav");
-
-function HamOpen() {
-  const hamburger = document.querySelector("#ham");
-  if (hamburger.classList.contains("stage0")) {
-    sidebar.style.right = "0px";
-    ham.classList.add("stage1");
-    ham.classList.remove("stage0");
-    ham.classList.add("fa-times");
-    ham.classList.remove("fa-bars");
-    ham.classList.remove("d-lg-none");
-    signIn.classList.add("hide");
-  } else if (hamburger.classList.contains("stage1")) {
-    sidebar.style.right = "-302px";
-    ham.classList.add("stage0");
-    ham.classList.remove("stage1");
-    ham.classList.add("fa-bars");
-    ham.classList.remove("fa-times");
-    ham.classList.add("d-lg-none");
-    signIn.classList.remove("hide");
-  }
-}
-
-// ---------- Service ---------- //
-let clean = document.getElementById("cleanInfo");
-let laundry = document.getElementById("laundryInfo");
-let pack = document.getElementById("packageInfo");
-
-let cleanButton = document.getElementById("cleanButton");
-let laundryButton = document.getElementById("laundryButton");
-let packButton = document.getElementById("packageButton");
-
-// เปิดแท็บ Cleaning ในหน้า Services
-function cleanOpen() {
-  clean.classList.remove("disable");
-  cleanButton.classList.add("selected");
-  laundry.classList.add("disable");
-  laundryButton.classList.remove("selected");
-  pack.classList.add("disable");
-  packButton.classList.remove("selected");
-}
-
-// เปิดแท็บ Laundry ในหน้า Services
-function laundryOpen() {
-  clean.classList.add("disable");
-  cleanButton.classList.remove("selected");
-  laundry.classList.remove("disable");
-  laundryButton.classList.add("selected");
-  pack.classList.add("disable");
-  packButton.classList.remove("selected");
-}
-
-// เปิดแท็บ Combo ในหน้า Services
-function packOpen() {
-  clean.classList.add("disable");
-  cleanButton.classList.remove("selected");
-  laundry.classList.add("disable");
-  laundryButton.classList.remove("selected");
-  pack.classList.remove("disable");
-  packButton.classList.add("selected");
-}
-
 // ---------- Form ---------- //
+let service;
 let basePrice;
 let iron = 50;
 
@@ -87,13 +23,14 @@ let formPart01 = document.getElementById("part01"); // หน้ากรอก�
 let formPart02 = document.getElementById("part02"); // หน้ายืนยัน OTP
 let formPart03 = document.getElementById("part03"); // หน้าขอบคุณ
 
-// Contact to form
+//---------- Contact to form ---------- //
 
 // ตั้งค่าเบื้องต้นสำหรับบริการ Cleaning
 function cleanCon() {
   basePrice = 250;
   finalPrice.innerHTML = basePrice * 2 + " บาท";
-  resultService.innerHTML = "Cleaning Service";
+  service = "Cleaning Service";
+  resultService.innerHTML = service;
   resultBase.innerHTML = basePrice + " บาท/ชั่วโมง";
   resultAmount.classList.add("disable");
   toForm();
@@ -103,7 +40,8 @@ function cleanCon() {
 function laundryCon() {
   basePrice = 200;
   finalPrice.innerHTML = basePrice + " บาท";
-  resultService.innerHTML = "Laundry Service";
+  service = "Laundry Service";
+  resultService.innerHTML = service;
   resultBase.innerHTML =
     "เริ่มต้นที่ " + basePrice + " บาท เพิ่มขึ้น 50 บาท ทุกๆ 10 ชิ้น";
   resultAmount.classList.remove("disable");
@@ -118,7 +56,8 @@ function laundryCon() {
 function comboCon() {
   basePrice = 290;
   finalPrice.innerHTML = basePrice * 2 + " บาท";
-  resultService.innerHTML = "Combo";
+  service = "Combo";
+  resultService.innerHTML = service;
   resultBase.innerHTML = basePrice + " บาท/ชั่วโมง";
   resultAmount.classList.add("disable");
   toForm();
@@ -135,12 +74,6 @@ function toForm() {
 
 // Form Part 01 ไป Form Part 02
 function toFormPart02() {
-  // Backend 01
-
-  // ใส่ระบบส่ง OTP เข้าเมลตรงนี้
-
-  // Backend 01
-
   conBanner.classList.add("disable");
   conSelect.classList.add("disable");
   formPart01.classList.add("disable");
@@ -150,12 +83,6 @@ function toFormPart02() {
 
 // Form Part 02 ไปหน้าขอบคุณ
 function toFinal() {
-  // Backend 02
-
-  // ใส่ระบบยืนยัน OTP + ส่งเมลหลักฐานตรงนี้
-
-  // Backend 02
-
   conBanner.classList.add("disable");
   conSelect.classList.add("disable");
   formPart01.classList.add("disable");
@@ -229,6 +156,7 @@ let jerryDisable = ["22-5-2021", "23-5-2021", "24-5-2021", "25-5-2021"]; // ว�
 
 let disableDates = [];
 
+// แสดงวันว่างของพนักงานในช่องเลือกวัน (Buggy: ต้องกดเลือกวันก่อนรอบนึงถึงจะ update)
 $(".datepicker").datepicker({
   format: "mm/dd/yyyy",
   beforeShowDay: function (date) {
